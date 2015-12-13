@@ -1,0 +1,279 @@
+Problem Statement
+
+Create a program that will ask the user what type of math problems they would like 
+to do: addition, subtraction, multiplication or division.  The program will then
+present three problems with random numbers to the user and ask for their answers.
+The program will then provide output to the user stating if their answer was correct
+or incorrect. 
+
+
+Nouns and Verbs
+
+Nouns: problem type, 3 addition problems, 3 subtraction problems , 3 multiplication
+        problems, 3 division problems, 3 answers, output
+
+Verbs: prompt, read, calculate, print
+
+
+
+Defining Diagram
+
+INPUTS: 
+  problemType
+  additionAnswer
+  subtractionAnswer
+  multiplicationAnswer
+  divisionAnswer
+
+PROCESSING:
+  request user input for problem type
+  read user input for problem type
+  randomly generate numbers for problems
+  display problem
+  request user input for answers
+  read user input for answers
+  determine if answers are correct or incorrect
+  display output for correct answers as "You entered + answer + . That is correct."
+  display output for incorrect answers as "You entered + answer + . That was incorrect."
+
+OUTPUTS:
+  display output for correct answers as "You entered + answer + . That is correct."
+  display output for incorrect answers as "You entered + answer + . That was incorrect."
+
+
+Pseudocode  
+
+MathProblemsForChildren
+  Main()
+    Declare output
+    Declare problemType
+  
+    Prompt for problem type with "Choose the type of problem that you would like to solve."
+  
+    CASE OF problemType
+
+    "a": addition
+
+      FOR (var counter = 0; counter < 3; counter ++){)
+        Addition()
+          Declare additionAnswer
+          Set number1 = random number from 0 to 10
+          Set number2 = random number from 0 to 10
+
+          additionAnswer = Prompt user with "What is " + number1 + " + " + number2 + "?"
+    
+          WHILE (additionAnswer = NaN)
+            Alert additionAnswer + " is not a valid anser. Please use the numeric pad."
+          END WHILE
+          
+          IF (additionAnswer === number1 + number2)
+            CorrectAnswer()
+              Display correct answer as "You entered " + additionAnswer + "."
+                + "YOU ARE CORRECT!"
+            END
+          ELSE
+            IncorrectAnswer()
+              Display incorrect answer as "You entered " + additionAnswer + "."
+                + "That is incorrect. Please try again."
+            END
+        END
+        
+    "s": subtraction
+
+      FOR (var counter = 0; counter < 3; counter ++){)
+        Subtraction()
+          Declare subtractionAnswer
+          Set number1 = random number from 0 to 10
+          Set number2 = random number from 0 to number1
+
+          subtractionAnswer = Prompt user with "What is " + number1 + " - " + number2 + "?"
+    
+          WHILE (subtractionAnswer = NaN)
+            Alert subtractionAnswer + " is not a valid anser. Please use the numeric pad."
+          END WHILE
+          
+          IF (subtractionAnswer === number1 - number2)
+            CorrectAnswer()
+              Display correct answer as "You entered " + subtractionAnswer + "."
+                + "YOU ARE CORRECT!"
+            END
+          ELSE
+            IncorrectAnswer()
+              Display incorrect answer as "You entered " + subtractionAnswer + "."
+                + "That is incorrect. Please try again."
+            END
+        END
+            
+    "m": multiplication
+
+      FOR (var counter = 0; counter < 3; counter ++){)
+        Multiplication()
+          Declare multiplicationAnswer
+          Set number1 = random number from 0 to 5
+          Set number2 = random number from 0 to 5
+
+          multiplicationAnswer = Prompt user with "What is " + number1 + " x " + number2 + "?"
+    
+          WHILE (multiplicationAnswer = NaN)
+            Alert multiplicationAnswer + " is not a valid anser. Please use the numeric pad."
+          END WHILE
+          
+          IF (multiplicationAnswer === number1 - number2)
+            CorrectAnswer()
+              Display correct answer as "You entered " + multiplicationAnswer + "."
+                + "YOU ARE CORRECT!"
+            END
+          ELSE
+            IncorrectAnswer()
+              Display incorrect answer as "You entered " + multiplicationAnswer + "."
+                + "That is incorrect. Please try again."
+            END
+        END
+              
+    "d": division
+
+      FOR (var counter = 0; counter < 3; counter ++){)
+        Division()
+          Declare divisionAnswer
+          Set number1 = random number from array [2, 4, 6, 8, 10]
+          Set number2 = random number from array [0, 2]
+
+          divisionAnswer = Prompt user with "What is " + number1 + " / " + number2 + "?"
+    
+          WHILE (divisionAnswer = NaN)
+            Alert divisionAnswer + " is not a valid anser. Please use the numeric pad."
+          END WHILE
+          
+          IF (divisionAnswer === number1 - number2)
+            CorrectAnswer()
+              Display correct answer as "You entered " + divisionAnswer + "."
+              + "YOU ARE CORRECT!"
+            END
+          ELSE
+            IncorrectAnswer()
+              Display incorrect answer as "You entered " + divisionAnswer + "."
+              + "That is incorrect. Please try again."
+            END
+        END
+          
+    default: output = "Please enter a, s, m or d."
+
+  END
+END
+
+
+
+Test Plans
+
+VARIABLES: problem type, additionAnswer, subtractionAnswer, multiplicationAnswer,
+            divisionAnswer
+
+TEST CASE 1:
+
+  INPUT VALUES: a
+              (What is 2 + 1?) 3
+              (What is 4 + 6?) 4
+              (What is 3 + 5?) 8
+  
+  EXPECTED RESULT: addition
+                   You entered 3. YOU ARE CORRECT!
+                   You entered 4. That is incorrect. Please try again.
+                   You entered 8. YOU ARE CORRECT!
+  
+  ACTUAL RESULT:   addition
+                   You entered 3. YOU ARE CORRECT!
+                   You entered 4. That is incorrect. Please try again.
+                   You entered 8. YOU ARE CORRECT!
+
+                   
+TEST CASE 2:
+
+  INPUT VALUES: s
+              (What is 8 - 1?) 7
+              (What is 3 - 2?) (1)
+              (What is 4 - 1?) three
+              (What is 4 - 1?) 3
+  
+  EXPECTED RESULT: subtraction
+                   You entered 7. YOU ARE CORRECT!
+                   (1) is not a valid answer.  Please use the numeric pad.
+                   three is not a valid answer.  Please use the numeric pad.
+                   You entered 3. YOU ARE CORRECT!
+  
+  ACTUAL RESULT:   subtraction
+                   You entered 3. YOU ARE CORRECT!
+                   You entered 1. YOU ARE CORRECT!
+                   three is not a valid answer.  Please use the numeric pad.
+                   You entered 3. YOU ARE CORRECT!
+
+                   
+TEST CASE 3:
+
+  INPUT VALUES: m
+                (What is 5 x 2?) 7
+                (What is 1 x 5?) 5
+                (What is 5 x 2?) ten
+                (What is 5 x 2?) no input, just pressed enter
+  
+  EXPECTED RESULT: multiplication
+                   You entered 7. That is incorrect.  Please try again.
+                   You entered 5. YOU ARE CORRECT!
+                   ten is not a valid answer.  Please use the numeric pad.
+                   You entered 0. That is incorrect. Please try again.
+  
+  ACTUAL RESULT:  multiplication
+                  You entered 7. That is incorrect.  Please try again.
+                  You entered 5. YOU ARE CORRECT!
+                  ten is not a valid answer.  Please use the numeric pad.
+                  You entered 0. That is incorrect. Please try again.
+
+                  
+TEST CASE 4: 
+
+  INPUT VALUES: addition
+  
+  EXPECTED RESULT: Please enter a, s, m or d.
+  
+  ACTUAL RESULT: Please enter a, s, m or d.
+
+  
+TEST CASE 5:
+
+  INPUT VALUES: d
+                (What is 6/1?) 3
+                (What is 4/2?) two
+                (What is 4/2?) 2
+                (What is 8/2?) no input, just pressed enter
+  
+  EXPECTED RESULT: division
+                   You entered 3. That is incorrect.  Please try again.
+                   two is not a valid answer.  Please use the numeric pad.
+                   You entered 2. YOU ARE CORRECT!
+                   You entered 0. That is incorrect. Please try again.
+  
+  ACTUAL RESULT:  division
+                  You entered 3. That is incorrect.  Please try again.
+                  two is not a valid answer.  Please use the numeric pad.
+                  You entered 2. YOU ARE CORRECT!
+                  You entered 0. That is incorrect. Please try again.
+
+                  
+TEST CASE 6:
+
+  INPUT VALUES: s
+                (What is 4 - 0?) 4.0
+                (What is 0 - 0?) no input, just pressed enter
+                (What is 8 - 6?) -2
+  
+  EXPECTED RESULT: subtraction
+                   You entered 4. YOU ARE CORRECT.
+                   You entered 0. YOU ARE CORRECT.
+                   You entered -2. That is incorrect. Please try again.
+
+  ACTUAL RESULT:  subtraction
+                  You entered 4. YOU ARE CORRECT.
+                  You entered 0. YOU ARE CORRECT.
+                  You entered -2. That is incorrect. Please try again.
+
+            
+            
