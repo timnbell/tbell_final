@@ -1,4 +1,6 @@
-# This project was created by Tim Bell in December, 2015.  This is my final
+#Final Project for CVTC Programming Fundamentals class created by Tim Bell.
+
+This project was created by Tim Bell in December, 2015.  This is my final
 project for the CVTC Programming Fundamentals class.  This program was designed
 as a math game for children.  You seletct the type of problem you would like to
 work with; addition, subtraction, multiplication or division.  Then the program
